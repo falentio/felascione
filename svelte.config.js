@@ -14,9 +14,9 @@ const config = {
 	kit: {
 		adapter: adapter({ fallback: "404.html" }),
 		prerender: {
-			default: true,
-		},
-	},
+			default: true
+		}
+	}
 };
 
 export default config;
