@@ -2,7 +2,7 @@
 	import { resolveSubjects } from "$lib/schedules";
 	import type { Subject } from "$lib/schedules";
 	import { format as _format, parse, getDay, setDay } from "date-fns";
-	import { id } from "date-fns/locale";
+	import id from "date-fns/locale/id/index.js";
 	import { onMount } from "svelte";
 
 	const schedules = [
@@ -37,7 +37,7 @@
 				{ from: "12:20", subject: "PKN", teacher: "Agustin" },
 				{ from: "13:00" },
 				{ from: "13:40", subject: "Bahasa Indonesia", teacher: "Santi J. A." },
-				{ from: "14:20", to: "15:00" },
+				{ from: "14:20", to: "15:00" }
 			]
 		},
 		{
@@ -54,7 +54,7 @@
 				{ from: "12:20", subject: "PKN", teacher: "Agustin" },
 				{ from: "13:00" },
 				{ from: "13:40", subject: "Bahasa Indonesia", teacher: "Santi J. A." },
-				{ from: "14:20", to: "15:00" },
+				{ from: "14:20", to: "15:00" }
 			]
 		},
 		{
@@ -71,7 +71,7 @@
 				{ from: "12:20", subject: "Kimia", teacher: "Yulia F. H." },
 				{ from: "13:00" },
 				{ from: "13:40", subject: "Bahasa Indonesia", teacher: "Santi J. A." },
-				{ from: "14:20", to: "15:00" },
+				{ from: "14:20", to: "15:00" }
 			]
 		},
 		{
@@ -88,7 +88,7 @@
 				{ from: "12:20", subject: "BK", teacher: "Ajeng A." },
 				{ from: "13:00", subject: "PAI", teacher: "Athiyyatur R." },
 				{ from: "13:40", subject: "MTK Wajib", teacher: "Widi A. S." },
-				{ from: "14:20", to: "15:00" },
+				{ from: "14:20", to: "15:00" }
 			]
 		},
 		{
