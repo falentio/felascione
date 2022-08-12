@@ -34,7 +34,7 @@ export function resolveSubjects(s?: Subject[]): Required<Subject>[] {
 	subjects.sort((a, b) => {
 		const aFrom = parse(a.from, "HH:mm", new Date()).getTime();
 		const bFrom = parse(b.from, "HH:mm", new Date()).getTime();
-		return bFrom - aFrom;
+		return aFrom - bFrom;
 	});
 	return subjects as Required<Subject>[];
 }
