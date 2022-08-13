@@ -17,10 +17,7 @@ export type SchedulesDefinition = {
 	subjects: Subject[];
 }[];
 
-export function resolveSubjects(s?: Subject[]): Required<Subject>[] {
-	if (!s) {
-		return [];
-	}
+export function resolveSubjects(s: Subject[]): Required<Subject>[] {
 	const subjects = s.map((curr, n, a) => {
 		const prev = a[n - 1];
 		const next = a[n + 1];

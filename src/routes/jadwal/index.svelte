@@ -41,23 +41,6 @@
 			]
 		},
 		{
-			day: 4,
-			subjects: [
-				{ from: "07:00", subject: "MTK Peminatan", teacher: "Ade Nusa" },
-				{ from: "07:45" },
-				{ from: "08:30", subject: "Sejarah", teacher: "Susiani" },
-				{ from: "09:15" },
-				{ from: "10:00", subject: "Istirahat", teacher: null },
-				{ from: "10:15", subject: "PJOK", teacher: "Andrie S." },
-				{ from: "11:00" },
-				{ from: "11:45", subject: "Istirahat", teacher: null },
-				{ from: "12:20", subject: "PKN", teacher: "Agustin" },
-				{ from: "13:00" },
-				{ from: "13:40", subject: "Bahasa Indonesia", teacher: "Santi J. A." },
-				{ from: "14:20", to: "15:00" }
-			]
-		},
-		{
 			day: 3,
 			subjects: [
 				{ from: "07:00", subject: "Fisika", teacher: "Akbar Kurniawan" },
@@ -94,7 +77,7 @@
 		{
 			day: 5,
 			subjects: [
-				{ from: "07:00", subject: "Kegiatan Ngga Jelas", teacher: null },
+				{ from: "07:00", subject: "Kegiatan Ga Jelas", teacher: null },
 				{ from: "07:40", subject: "Kimia", teacher: "Yulia F. H." },
 				{ from: "08:25" },
 				{ from: "09:10", subject: "PAI", teacher: "Athiyyatur R." },
@@ -114,7 +97,7 @@
 	let simple = true;
 	let day = getDay(dateNow);
 
-	$: subjects = resolveSubjects(schedules.find((i) => i.day === day)?.subjects);
+	$: subjects = resolveSubjects(schedules.find((i) => i.day === day)?.subjects ?? []);
 	$: simpleSubjects = simplifySubjects(subjects);
 	$: currentSubject = getCurrentSubject(subjects);
 	$: hasPink = subjects.findIndex((i) => i === currentSubject) >= 0 && !simple;
@@ -137,7 +120,9 @@
 	}
 
 	function simplifySubjects(s: Subject[]) {
-		const subjects = s.filter((i) => Boolean(i.teacher)).map((i) => i.subject);
+		const subjects = s
+			.filter((i) => Boolean(i.teacher))
+			.map((i) => i.subject);
 		return [...new Set(subjects)];
 	}
 
@@ -174,12 +159,14 @@
 	<img src="/felascione.jpg" alt="felascione-logo" class="rounded-full w-1/2 mx-auto md:w-1/3" />
 
 	<div class="border-2 border-black bg-pastel-blue p-2 rounded-xl">
-		<div class="flex flex-col">
-			<span class="font-bold"> Sekarang</span>
+		<span class="font-bold"> Sekarang</span>
+		<div class="flex flex-col underline">
 			<span class=""> Tanggal: {format(dateNow, "eeee, d LLLL y")} </span>
 			<span> Jam: {format(dateNow, "HH:mm:ss")} </span>
-			{#if currentSubject}
+			{#if currentSubject?.subject}
 				<span> Pelajaran: {currentSubject.subject} </span>
+			{/if}
+			{#if currentSubject?.teacher}
 				<span> Pengajar: {currentSubject.teacher} </span>
 			{/if}
 		</div>
@@ -187,8 +174,8 @@
 
 	<div class="border-2 border-black bg-pastel-blue p-2 rounded-xl flex flex-col gap-4">
 		<div class="flex flex-row relative mb-4">
-			<span class="text-xl font-bold font-serif text-center w-full">
-				Jadwal Hari {format(setDay(new Date(), day), "eeee")}
+			<span class="text-2xl font-bold text-center w-full">
+				Hari {format(setDay(new Date(), day), "eeee")}
 			</span>
 			<button
 				class="w-12 h-12 rounded-full absolute right-0 bg-pastel-yellow shadow-md bordfer-2 border-black click:bg-black"
@@ -201,24 +188,21 @@
 			{#if simple}
 				{#each simpleSubjects as name (name)}
 					<li class="text-center text-xl">{name}</li>
-				{:else}
-					<li class="py-6 bg-pastel-pink text-center text-2xl font-bold rounded-md shadow-md">
-						Wayah Prei!!!!
-					</li>
 				{/each}
 			{:else}
 				{#each subjects as i (i.from)}
 					{@const subject = getSubjectText(i)}
 					{@const isCurrentSubject = i === currentSubject}
-					<li class="flex flex-row border-b border-black {isCurrentSubject && 'bg-pastel-pink'}">
+					<li class="flex flex-row border-b border-black odd:text-blue-700 {isCurrentSubject && 'bg-pastel-pink'}">
 						<span class="flex-auto">{subject}</span>
 						<span>{i.from} - {i.to}</span>
 					</li>
-				{:else}
-					<li class="py-6 bg-pastel-pink text-center text-2xl font-bold rounded-md shadow-md">
-						Wayah Prei!!!!
-					</li>
 				{/each}
+			{/if}
+			{#if subjects.length === 0}
+				<li class="py-6 bg-pastel-pink text-center text-2xl font-bold rounded-md shadow-md">
+					Wayah Prei!!!!
+				</li>
 			{/if}
 			<li />
 		</ul>
@@ -231,10 +215,10 @@
 
 		<div class="flex flex-row justify-between text-2xl">
 			<button class="bg-pastel-yellow w-24 rounded-md shadow-md" on:click={() => day--}>
-				Prev
+				{format(setDay(new Date(), day - 1), "eeee")}
 			</button>
 			<button class="bg-pastel-yellow w-24 rounded-md shadow-md" on:click={() => day++}>
-				Next
+				{format(setDay(new Date(), day + 1), "eeee")}
 			</button>
 		</div>
 	</div>
