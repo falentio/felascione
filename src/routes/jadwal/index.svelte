@@ -184,7 +184,7 @@
 				{simple ? "Simple" : "Full"}
 			</button>
 		</div>
-		<ul class="dividfe-y divide-black">
+		<ul class="divide-y divide-black">
 			{#if simple}
 				{#each simpleSubjects as name (name)}
 					<li class="text-center text-xl">{name}</li>
@@ -193,14 +193,14 @@
 				{#each subjects as i (i.from)}
 					{@const subject = getSubjectText(i)}
 					{@const isCurrentSubject = i === currentSubject}
-					<li class="flex flex-row border-b border-black odd:text-blue-700 {isCurrentSubject && 'bg-pastel-pink'}">
+					<li class="flex flex-row odd:text-blue-700 {isCurrentSubject && 'bg-pastel-pink'}">
 						<span class="flex-auto">{subject}</span>
 						<span>{i.from} - {i.to}</span>
 					</li>
 				{/each}
 			{/if}
 			{#if subjects.length === 0}
-				<li class="py-6 bg-pastel-pink text-center text-2xl font-bold rounded-md shadow-md">
+				<li class="py-6 bg-pastel-yellow text-center text-2xl font-bold rounded-md shadow-md">
 					Wayah Prei!!!!
 				</li>
 			{/if}

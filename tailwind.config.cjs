@@ -6,7 +6,8 @@ const config = {
 	theme: {
 		extend: {
 			fontFamily: {
-				abel: ["Abel", "sans-serif"]
+				abel: ["Abel", "sans-serif"],
+				cinzel: ["Cinzel", "serif"],
 			},
 			colors: {
 				pastel: {

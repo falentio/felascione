@@ -12,7 +12,7 @@
 	})
 </script>
 
-<section class="bg-zinc-800 p-4 text-gray-100 flex flex-col">
+<section class="bg-zinc-900 p-4 text-gray-100 flex flex-col">
 	<span class="text-center">
 		Made With &#9829 For My Friend{text}
 	</span>
