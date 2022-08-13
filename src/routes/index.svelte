@@ -30,7 +30,7 @@
 			class="mx-auto"
 			alt="foto kelas"
 		/>
-		<span class="text-sm ml-auto"> *harusnya foto kelas </span>
+		<span class="text-sm ml-auto"> *gapunya foto kelas </span>
 	</div>
 </section>
 
