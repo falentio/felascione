@@ -200,7 +200,7 @@
 				{/each}
 			{/if}
 			{#if subjects.length === 0}
-				<li class="py-6 bg-pastel-yellow text-center text-2xl font-bold rounded-md shadow-md">
+				<li class="py-6 bg-pastel-yellow text-center text-2xl font-bold shadow-md">
 					Wayah Prei!!!!
 				</li>
 			{/if}
