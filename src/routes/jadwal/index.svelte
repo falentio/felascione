@@ -77,7 +77,7 @@
 		{
 			day: 5,
 			subjects: [
-				{ from: "07:00", subject: "Kegiatan Ga Jelas", teacher: null },
+				{ from: "07:00", subject: "Mending Turu", teacher: null },
 				{ from: "07:40", subject: "Kimia", teacher: "Yulia F. H." },
 				{ from: "08:25" },
 				{ from: "09:10", subject: "PAI", teacher: "Athiyyatur R." },
@@ -213,13 +213,23 @@
 			</div>
 		{/if}
 
-		<div class="flex flex-row justify-between text-2xl">
-			<button class="bg-pastel-yellow w-24 rounded-md shadow-md" on:click={() => day--}>
+		<div class="flex flex-row gap-2 flex-wrap justify-center">
+			<!-- <button class="bg-pastel-yellow w-24 rounded-md shadow-md" on:click={() => day--}>
 				{format(setDay(new Date(), day - 1), "eeee")}
 			</button>
 			<button class="bg-pastel-yellow w-24 rounded-md shadow-md" on:click={() => day++}>
 				{format(setDay(new Date(), day + 1), "eeee")}
-			</button>
+			</button> -->
+			{#each Array.from({ length: 7 }) as _, i (i)}
+				<button 
+					class="bg-pastel-yellow rounded-md shadow-md p-2" 
+					class:bg-pastel-pink={i === day}
+					on:click={() => day = i}
+					disabled={i === day}
+				>
+					{format(setDay(new Date(),  i + 1), "eeee")}
+				</button>
+			{/each}
 		</div>
 	</div>
 </div>
