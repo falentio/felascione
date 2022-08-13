@@ -1,15 +1,13 @@
 <script lang="ts">
-	import { onMount } from "svelte"
-	import Icon from "@iconify/svelte"
-	let text = "s"
+	import { onMount } from "svelte";
+	let text = "s";
 
 	onMount(() => {
-		setTimeout(() => text = " :", 8_000)
-		setTimeout(() => text = " :)", 11_000)
-		setTimeout(() => text = " :(", 11 * 8 * 2005)
-		return () => {
-		}
-	})
+		setTimeout(() => (text = " :"), 8_000);
+		setTimeout(() => (text = " :)"), 11_000);
+		setTimeout(() => (text = " :("), 11 * 8 * 2005);
+		return () => {};
+	});
 </script>
 
 <section class="bg-zinc-900 p-4 text-gray-100 flex flex-col">

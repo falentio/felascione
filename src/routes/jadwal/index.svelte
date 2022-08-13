@@ -95,7 +95,7 @@
 	let dateNow = new Date();
 	// dateNow = parse("8 11:20", "d HH:mm", new Date());
 	let simple = true;
-	let day = getDay(dateNow);
+	let day: number = getDay(dateNow);
 
 	$: subjects = resolveSubjects(schedules.find((i) => i.day === day)?.subjects ?? []);
 	$: simpleSubjects = simplifySubjects(subjects);
@@ -120,9 +120,7 @@
 	}
 
 	function simplifySubjects(s: Subject[]) {
-		const subjects = s
-			.filter((i) => Boolean(i.teacher))
-			.map((i) => i.subject);
+		const subjects = s.filter((i) => Boolean(i.teacher)).map((i) => i.subject);
 		return [...new Set(subjects)];
 	}
 
@@ -221,13 +219,14 @@
 				{format(setDay(new Date(), day + 1), "eeee")}
 			</button> -->
 			{#each Array.from({ length: 7 }) as _, i (i)}
-				<button 
-					class="bg-pastel-yellow rounded-md shadow-md p-2" 
-					class:bg-pastel-pink={i === day}
-					on:click={() => day = i}
-					disabled={i === day}
+				{@const d = i + 1}
+				<button
+					class="bg-pastel-yellow rounded-md shadow-md p-2"
+					class:bg-pastel-pink={d === day}
+					on:click={() => (day = d)}
+					disabled={d === day}
 				>
-					{format(setDay(new Date(),  i), "eeee")}
+					{format(setDay(new Date(), d), "eeee")}
 				</button>
 			{/each}
 		</div>
