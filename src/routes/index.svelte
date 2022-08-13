@@ -11,7 +11,7 @@
 		<span class="text-2xl font-cinzel">XII MIPA 1 </span>
 		<p class="flex flex-col"> 
 			<span>Smanta '05</span>
-			<span>Success with your favourite class.</span>
+			<span>Success with a favourite class.</span>
 		</p>
 		<a 
 			class="flex flex-row items-center gap-1 bg-zinc-900 text-white p-1 w-max"
