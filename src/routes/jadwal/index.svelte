@@ -199,7 +199,7 @@
 			{/if}
 			{#if subjects.length === 0}
 				<li class="py-6 bg-pastel-yellow text-center text-2xl font-bold shadow-md">
-					Wayah Prei!!!!
+					Prei!!!
 				</li>
 			{/if}
 			<li />

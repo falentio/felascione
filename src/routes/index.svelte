@@ -6,13 +6,14 @@
 	<span class="text-4xl md:text-7xl font-cinzel"> Felascione </span>
 </section>
 
-<section class="p-4 flex flex-row gap-2 flex-wrap justify-between shadow-md">
-	<div class="w-1/2 flex flex-col gap-2">
+<section class="p-4 flex flex-row flex-wrap justify-between shadow-md">
+	<div class="w-7/12 flex flex-col gap-2">
 		<span class="text-2xl font-cinzel">XII MIPA 1 </span>
 		<p class="flex flex-col">
 			<span>Smanta '05</span>
 			<span>Success with a favourite class.</span>
 		</p>
+		<div class="flex-auto" />
 		<a
 			class="flex flex-row items-center gap-1 bg-zinc-900 text-white p-1 w-max"
 			href="https://instagram.com/felascione"
@@ -36,7 +37,7 @@
 
 <article class="p-4 flex flex-col flex-wrap gap-4">
 	<div class="border-b border-black flex flex-col">
-		<span class="font-cinzel font-bold"> Jadwal Pelajaran </span>
+		<span class="font-bold"> Jadwal Pelajaran </span>
 		<span> Halaman sederhana untuk melihat jadwal pelajaran. </span>
 		<span>
 			Akan berubah secara berkala, dan akan selalu tersinkronasi dengan Jadwal yang digunakan saat
