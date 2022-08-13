@@ -227,7 +227,7 @@
 					on:click={() => day = i}
 					disabled={i === day}
 				>
-					{format(setDay(new Date(),  i + 1), "eeee")}
+					{format(setDay(new Date(),  i), "eeee")}
 				</button>
 			{/each}
 		</div>
