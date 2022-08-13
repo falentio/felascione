@@ -219,7 +219,7 @@
 				{format(setDay(new Date(), day + 1), "eeee")}
 			</button> -->
 			{#each Array.from({ length: 7 }) as _, i (i)}
-				{@const d = i + 1}
+				{@const d = i > 5 ? 0 : i + 1}
 				<button
 					class="bg-pastel-yellow rounded-md shadow-md p-2"
 					class:bg-pastel-pink={d === day}
