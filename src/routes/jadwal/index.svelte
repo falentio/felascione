@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { resolveSubjects } from "$lib/schedules";
 	import { show } from "$lib/components/Header.svelte"
+	import { resolveSubjects } from "$lib/schedules";
 	import type { Subject } from "$lib/schedules";
 	import { format as _format, parse, getDay, setDay } from "date-fns";
 	import id from "date-fns/locale/id/index.js";
