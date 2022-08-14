@@ -6,7 +6,7 @@
 	import id from "date-fns/locale/id/index.js";
 	import { onMount } from "svelte";
 	$show = false
-
+	
 	const schedules = [
 		{
 			day: 1,
@@ -213,7 +213,7 @@
 			</div>
 		{/if}
 
-		<div class="flex flex-row gap-2 flex-wrap justify-center select-none">
+		<div class="flex flex-row gap-2 flex-wrap justify-center">
 			<!-- <button class="bg-pastel-yellow w-24 rounded-md shadow-md" on:click={() => day--}>
 				{format(setDay(new Date(), day - 1), "eeee")}
 			</button>
