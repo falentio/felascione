@@ -2,10 +2,6 @@
 	import Icon from "@iconify/svelte";
 </script>
 
-<section class=" p-4 bg-zinc-900 text-white flex flex-row justify-between items-end sticky top-0">
-	<span class="text-4xl md:text-7xl font-cinzel"> Felascione </span>
-</section>
-
 <section class="p-4 flex flex-row flex-wrap justify-between shadow-md">
 	<div class="w-7/12 flex flex-col gap-2">
 		<span class="text-2xl font-cinzel">XII MIPA 1 </span>
