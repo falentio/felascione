@@ -12,6 +12,7 @@
 		<p class="flex flex-col">
 			<span>Smanta '05</span>
 			<span>Success with a favourite class.</span>
+			<span>SMAN 3 Kota Batu</span>
 		</p>
 		<div class="flex-auto" />
 		<a
