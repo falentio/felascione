@@ -20,9 +20,9 @@
 			<span> Instagram </span>
 		</a>
 	</div>
-	<div class="text-right w-5/12">
+	<div class="text-center w-5/12">
 		<img
-			src="https://catsum.deno.dev/300/200"
+			src="https://catsum.deno.dev/300/200?q=50"
 			width="300"
 			height="200"
 			class="mx-auto"
@@ -38,8 +38,8 @@
 		<span> Halaman sederhana untuk melihat jadwal pelajaran. </span>
 		<span>
 			Akan berubah secara berkala, dan akan selalu tersinkronasi dengan Jadwal yang digunakan saat
-			ini.</span
-		>
+			ini.
+		</span>
 		<a href="/jadwal" class="underline text-blue-500 visited:text-blue-700">Klik disini</a>
 	</div>
 </article>

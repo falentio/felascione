@@ -1,6 +1,16 @@
 <script lang="ts" context="module">
 	import { writable } from "svelte/store"
-	export const show = writable(false)
+	export const show = writable(true)
+</script>
+
+<script lang="ts">
+	import { beforeNavigate } from "$app/navigation"
+	import { browser } from "$app/env"
+	if (browser) {
+		beforeNavigate(() => {
+			$show = true
+		})
+	}
 </script>
 
 
@@ -11,7 +21,7 @@
 	<span class="text-4xl md:text-7xl font-cinzel"> Felascione </span>
 </section>
 
-<style type="text/css">
+<style lang="css">
 	.s {
 		display: none;
 	}

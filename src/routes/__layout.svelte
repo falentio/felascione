@@ -4,9 +4,8 @@
 	import "@fontsource/cinzel/400.css";
 
 	import { browser } from "$app/env"
-	import Header, { show } from "$lib/components/Header.svelte";
+	import Header from "$lib/components/Header.svelte";
 	import Footer from "$lib/components/Footer.svelte";
-	$show = true
 </script>
 
 <main 
