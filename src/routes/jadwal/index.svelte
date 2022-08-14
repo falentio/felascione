@@ -77,7 +77,7 @@
 		{
 			day: 5,
 			subjects: [
-				{ from: "07:00", subject: "Mending TuruMending TuruMending TuruMending TuruMending TuruMending TuruMending TuruMending TuruMending TuruMending TuruMending TuruMending TuruMending TuruMending TuruMending TuruMending TuruMending TuruMending TuruMending Turu", teacher: null },
+				{ from: "07:00", subject: "Mending Turu", teacher: null },
 				{ from: "07:40", subject: "Kimia", teacher: "Yulia F. H." },
 				{ from: "08:25" },
 				{ from: "09:10", subject: "PAI", teacher: "Athiyyatur R." },
@@ -192,8 +192,8 @@
 					{@const subject = getSubjectText(i)}
 					{@const isCurrentSubject = i === currentSubject}
 					<li class="flex flex-row even:text-blue-700 justify-between overflow-auto inline-block {isCurrentSubject && 'bg-pastel-pink'}">
-						<span class="bg-pastel-yellow">{subject}</span>
-						<span class="bg-pastel-pink w-1/3">{i.from} - {i.to}</span>
+						<span class="w-2/3">{subject}</span>
+						<span>{i.from} - {i.to}</span>
 					</li>
 				{/each}
 			{/if}
