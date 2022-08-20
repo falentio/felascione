@@ -14,9 +14,7 @@
 	>
 		<Icon icon="mdi:menu" />
 	</button>
-	<ul 
-		class="{show ? 'flex' : 'hidden'} flex-col w-full md:text-xl md:flex md:flex-row md:gap-4"
-	>
+	<ul class="{show ? 'flex' : 'hidden'} flex-col w-full md:text-xl md:flex md:flex-row md:gap-4">
 		<li><a href="/">Home</a></li>
 		<li><a href="/jadwal">Jadwal</a></li>
 	</ul>
