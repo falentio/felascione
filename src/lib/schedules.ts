@@ -26,7 +26,7 @@ export class Schedules {
 	}
 
 	setDate(date: string) {
-		this.date = parse(date, "d HH:mm", new Date())
+		this.date = parse(date, "d HH:mm", new Date());
 	}
 
 	isCurrent(subject: Required<Subject>): boolean {
@@ -46,7 +46,7 @@ export class Schedules {
 				teacher: curr.teacher ?? (curr.teacher === null ? null : prev.teacher),
 				to: curr.to ?? next.from,
 				from: curr.from,
-				current: false,
+				current: false
 			};
 		});
 
@@ -69,7 +69,6 @@ export class Schedules {
 	}
 
 	currentSubject(): Required<Subject> | undefined {
-		return this.getSubjects()
-			.find(i => i.current);
+		return this.getSubjects().find((i) => i.current);
 	}
 }

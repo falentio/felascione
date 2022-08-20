@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type	 { Schedules } from "$lib/schedules";
+	import type { Schedules } from "$lib/schedules";
 	import { seconds } from "$lib/utils/cron";
 	import { format } from "date-fns";
 	import locale from "date-fns/locale/id/index.js";

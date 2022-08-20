@@ -4,7 +4,9 @@
 	let show = false;
 </script>
 
-<nav class="py-2 px-4 bg-pastel-blue flex flex-row flex-wrap justify-between border-b-2 border-black">
+<nav
+	class="py-2 px-4 bg-pastel-blue flex flex-row flex-wrap justify-between border-b-2 border-black"
+>
 	<span class="text-3xl md:text-5xl"><a href="/">Felascione</a></span>
 	<button
 		on:click={() => (show = !show)}

@@ -54,7 +54,7 @@
 		<li />
 	</ul>
 
-	{#if !simple && subjects.some(i => i.current)}
+	{#if !simple && subjects.some((i) => i.current)}
 		<div class="flex flex-row">
 			<span class="bg-pastel-pink"> Background Pink</span>: pelajaran saat ini
 		</div>
