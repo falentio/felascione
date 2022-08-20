@@ -5,7 +5,11 @@ declare namespace App {
 	// interface Locals {}
 	// interface Platform {}
 	// interface PrivateEnv {}
-	// interface PublicEnv {}
+	interface PublicEnv {
+		PUBLIC_PRKITA: string;
+	}
 	// interface Session {}
 	// interface Stuff {}
 }
+
+declare const __BUILD_TIMESTAMP__: number;

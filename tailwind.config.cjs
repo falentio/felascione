@@ -14,7 +14,9 @@ const config = {
 					blue: "#9adcff",
 					yellow: "#fff89a",
 					peach: "#ffb2a6",
-					pink: "#ff8aae"
+					pink: "#ff8aae",
+					red: "#79304e",
+					green: "#3fc4bc"
 				}
 			}
 		}

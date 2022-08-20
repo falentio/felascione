@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { format } from "date-fns"
-	import id from "date-fns/locale/id/index.js"
+	import { format } from "date-fns";
+	import id from "date-fns/locale/id/index.js";
 
-	const date = format(__BUILD_TIMESTAMP__, "HH:m, d LLLL y", { locale: id })
+	const date = format(__BUILD_TIMESTAMP__, "HH:m, d LLLL y", { locale: id });
 </script>
 
 <section class="bg-zinc-900 p-2 text-gray-100 flex flex-col text-center">
