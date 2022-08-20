@@ -2,7 +2,7 @@
 	import Icon from "@iconify/svelte";
 </script>
 
-<section class="p-4 flex flex-row flex-wrap justify-between shadow-md">
+<section class="p-4 flex flex-row flex-wrap justify-between shadow-sm">
 	<div class="w-7/12 flex flex-col gap-2">
 		<span class="text-2xl font-cinzel">XII MIPA 1 </span>
 		<p class="flex flex-col">
@@ -12,7 +12,7 @@
 		</p>
 		<div class="flex-auto" />
 		<a
-			class="flex flex-row items-center gap-1 bg-zinc-900 text-white p-1 w-max"
+			class="flex flex-row items-center gap-1 bg-pastel-blue px-2 py-1 w-max rounded-md text-zinc-900"
 			href="https://instagram.com/felascione"
 			target="_blank"
 		>
@@ -20,26 +20,26 @@
 			<span> Instagram </span>
 		</a>
 	</div>
-	<div class="text-center w-5/12">
+	<div class="text-center rounded-md w-5/12">
 		<img
 			src="https://catsum.deno.dev/300/200?q=50"
 			width="300"
 			height="200"
-			class="mx-auto"
+			class="mx-auto object-cover rounded-md"
 			alt="foto kelas"
 		/>
-		<span class="text-sm ml-auto"> *gapunya foto kelas </span>
+		<span class="text-sm ml-auto"> *contoh foto </span>
 	</div>
 </section>
 
-<article class="p-4 flex flex-col flex-wrap gap-4">
-	<div class="border-b border-black flex flex-col">
-		<span class="font-bold"> Jadwal Pelajaran </span>
+<article class="p-4 flex flex-col flex-wrap gap-4 divide-y divide-black">
+	<a class="flex flex-col" href="/jadwal">
+		<span class="font-bold">Jadwal Pelajaran</span>
 		<span> Halaman sederhana untuk melihat jadwal pelajaran. </span>
 		<span>
 			Akan berubah secara berkala, dan akan selalu tersinkronasi dengan Jadwal yang digunakan saat
 			ini.
 		</span>
-		<a href="/jadwal" class="underline text-blue-500 visited:text-blue-700">Klik disini</a>
-	</div>
+	</a>
+	<div />
 </article>
