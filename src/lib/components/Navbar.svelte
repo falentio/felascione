@@ -10,16 +10,16 @@
 	<span class="text-3xl md:text-5xl"><a href="/">Felascione</a></span>
 	<button
 		on:click={() => (show = !show)}
-		class="text-center text-3xl md:text-5xl flex flex-col items-center relative peer dropdown"
+		class="text-center text-3xl md:text-5xl flex flex-col items-center relative peer md:hidden"
 	>
 		<Icon icon="mdi:menu" />
 	</button>
-	{#if show}
-		<ul class="flex flex-col w-full md:text-xl">
-			<li><a href="/">Home</a></li>
-			<li><a href="/jadwal">Jadwal</a></li>
-		</ul>
-	{/if}
+	<ul 
+		class="{show ? 'flex' : 'hidden'} flex-col w-full md:text-xl md:flex md:flex-row md:gap-4"
+	>
+		<li><a href="/">Home</a></li>
+		<li><a href="/jadwal">Jadwal</a></li>
+	</ul>
 </nav>
 
 <style>
