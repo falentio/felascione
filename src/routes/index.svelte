@@ -2,7 +2,7 @@
 	import Icon from "@iconify/svelte";
 </script>
 
-<section class="p-4 flex flex-row flex-wrap justify-between shadow-sm bg-zinc-800 text-white">
+<section class="p-4 flex flex-row flex-wrap justify-between shadow-sm">
 	<div class="w-7/12 flex flex-col gap-2">
 		<span class="text-2xl font-cinzel">XII MIPA 1 </span>
 		<p class="flex flex-col">
