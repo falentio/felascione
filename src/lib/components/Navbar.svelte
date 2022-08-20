@@ -4,7 +4,7 @@
 	let show = false;
 </script>
 
-<nav class="p-2 bg-pastel-blue flex flex-row flex-wrap justify-between border-b-2 border-black">
+<nav class="py-2 px-4 bg-pastel-blue flex flex-row flex-wrap justify-between border-b-2 border-black">
 	<span class="text-3xl md:text-5xl"><a href="/">Felascione</a></span>
 	<button
 		on:click={() => (show = !show)}
@@ -13,7 +13,7 @@
 		<Icon icon="mdi:menu" />
 	</button>
 	{#if show}
-		<ul class="flex flex-col px-4 w-full md:text-xl">
+		<ul class="flex flex-col w-full md:text-xl">
 			<li><a href="/">Home</a></li>
 			<li><a href="/jadwal">Jadwal</a></li>
 		</ul>
