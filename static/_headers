@@ -1,4 +1,5 @@
 /*
   Cache-Control: public, max-age=7200
 /_app/immutable/*
+  ! Cache-Control
   Cache-Control: public, max-age=3153600, immutable
