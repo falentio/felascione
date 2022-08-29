@@ -6,17 +6,15 @@
 	import { browser } from "$app/env";
 	import Navbar from "$lib/components/Navbar.svelte";
 	import Footer from "$lib/components/Footer.svelte";
+	import LoginGuard from "$lib/components/LoginGuard.svelte";
 </script>
 
-<main class="min-h-screen container mx-auto font-abel flex flex-col z-10" class:h={!browser}>
-	<Navbar />
-	<slot />
-	<div class="flex-auto" />
-	<Footer />
+<LoginGuard />
+<Navbar />
+<main class="min-h-screen flex flex-col">
+	<div class="container mx-auto"> 
+		<slot />
+	</div>
+	<p class="flex-auto" />
 </main>
-
-<style>
-	.h {
-		display: none;
-	}
-</style>
+<Footer />

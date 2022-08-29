@@ -6,3 +6,7 @@
 button {
 	user-select: none;
 }
+
+html {
+	@apply font-abel
+}
