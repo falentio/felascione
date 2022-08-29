@@ -12,7 +12,7 @@
 <LoginGuard />
 <Navbar />
 <main class="min-h-screen flex flex-col">
-	<div class="container mx-auto"> 
+	<div class="container mx-auto">
 		<slot />
 	</div>
 	<p class="flex-auto" />

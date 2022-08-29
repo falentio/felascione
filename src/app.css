@@ -8,5 +8,5 @@ button {
 }
 
 html {
-	@apply font-abel
+	@apply font-abel;
 }

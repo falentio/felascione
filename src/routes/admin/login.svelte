@@ -1,30 +1,30 @@
 <script lang="ts">
-	import { PUBLIC_PRKITA_URL as prkita } from "$env/static/public"
-	import { goto } from "$app/navigation"
-	const searchParams = new URLSearchParams()
-	let username: string
-	let password: string
-	let token: Promise<void> | null = null
+	import { PUBLIC_PRKITA_URL as prkita } from "$env/static/public";
+	import { goto } from "$app/navigation";
+	const searchParams = new URLSearchParams();
+	let username: string;
+	let password: string;
+	let token: Promise<void> | null = null;
 	function login() {
-		token = setToken()
+		token = setToken();
 		token.then(async () => {
 			await delay(500);
-			goto("/admin")
-		})
+			goto("/admin");
+		});
 	}
-	const delay = (n: number) => new Promise(r => setTimeout(r, n))
+	const delay = (n: number) => new Promise((r) => setTimeout(r, n));
 
 	async function setToken() {
-		const url = new URL("/auth/login", prkita)
-		url.searchParams.set("username", username)
-		url.searchParams.set("password", password)
-		const res = await fetch(url.href)
+		const url = new URL("/auth/login", prkita);
+		url.searchParams.set("username", username);
+		url.searchParams.set("password", password);
+		const res = await fetch(url.href);
 		if (!res.ok) {
-			console.error(res.status)
-			throw new Error("failed to login")
+			console.error(res.status);
+			throw new Error("failed to login");
 		}
-		const body = await res.json()
-		sessionStorage.setItem("PRKITA-TOKEN", body.token)
+		const body = await res.json();
+		sessionStorage.setItem("PRKITA-TOKEN", body.token);
 	}
 </script>
 
@@ -32,31 +32,31 @@
 	<form class="rounded-sm m-4 p-2 border-2 border-black flex flex-col gap-4 max-w-md w-2/3 mx-auto">
 		<div class="flex flex-col">
 			<label for="username-input-field"> Username </label>
-			<input 
-				id="username-input-field" 
-				type="text" 
+			<input
+				id="username-input-field"
+				type="text"
 				name="username"
 				class="focus:ring-blue-500 focus:ring-2 focus:outline-none p-2 bg-gray-100 rounded-sm shadow-md ring-1 ring-black"
-				placeholder="Abelia Narindi Agsya" 
+				placeholder="Abelia Narindi Agsya"
 				bind:value={username}
 			/>
 		</div>
 		<div class="flex flex-col">
 			<label for="password-input-field"> Password </label>
-			<input 
-				id="password-input-field" 
-				type="password" 
-				name="password" 
+			<input
+				id="password-input-field"
+				type="password"
+				name="password"
 				class="focus:ring-blue-500 focus:ring-2 focus:outline-none p-2 bg-gray-100 rounded-sm shadow-md ring-1 ring-black"
-				placeholder="******-*******-*****" 
+				placeholder="******-*******-*****"
 				bind:value={password}
 			/>
 		</div>
 		<div class="flex flex-row justify-center">
-			<button 
+			<button
 				disabled={!username || !password}
-				type="submit" 
-				class="px-3 py-1 bg-pastel-blue rounded-sm disabled:text-gray-200 disabled:bg-gray-300" 
+				type="submit"
+				class="px-3 py-1 bg-pastel-blue rounded-sm disabled:text-gray-200 disabled:bg-gray-300"
 				on:click|preventDefault={login}
 			>
 				Login
