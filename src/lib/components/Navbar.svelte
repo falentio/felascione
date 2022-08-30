@@ -18,6 +18,7 @@
 		<li><a href="/">Home</a></li>
 		<li><a href="/jadwal">Jadwal</a></li>
 		<li><a href="/pr">PR</a></li>
+		<li><a href="/acak-kelompok">Kelompok</a></li>
 	</ul>
 </nav>
 
