@@ -37,7 +37,7 @@
 				type="text"
 				name="username"
 				class="focus:ring-blue-500 focus:ring-2 focus:outline-none p-2 bg-gray-100 rounded-sm shadow-md ring-1 ring-black"
-				placeholder="Abelia Narindi Agsya"
+				placeholder="Username"
 				bind:value={username}
 			/>
 		</div>
