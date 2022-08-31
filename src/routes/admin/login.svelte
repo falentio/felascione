@@ -20,11 +20,10 @@
 		url.searchParams.set("password", password);
 		const res = await fetch(url.href);
 		if (!res.ok) {
-			console.error(res.status);
 			throw new Error("failed to login");
 		}
 		const body = await res.json();
-		sessionStorage.setItem("PRKITA-TOKEN", body.token);
+		localStorage.setItem("PRKITA-TOKEN", body.token);
 	}
 </script>
 

@@ -11,7 +11,7 @@
 			return;
 		}
 
-		const token = sessionStorage.getItem("PRKITA-TOKEN");
+		const token = localeStorage.getItem("PRKITA-TOKEN");
 		if (!token) {
 			goto("/admin/login");
 			return;
