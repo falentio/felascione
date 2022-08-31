@@ -9,25 +9,25 @@
 	export let subject: string;
 	export let description: string;
 	export let attatchments: Array<{ url: string }> = [];
-	const admin = window?.localStorage?.getItem("PRKITA-TOKEN") !== null
+	const admin = window?.localStorage?.getItem("PRKITA-TOKEN") !== null;
 	$: _dueDate = new Date(dueDate);
 
-	let deleteProcess: Promise<void> | null = null
+	let deleteProcess: Promise<void> | null = null;
 	async function del(id: string) {
-		const token = localStorage.getItem("PRKITA-TOKEN")!
+		const token = localStorage.getItem("PRKITA-TOKEN")!;
 		const url = new URL("/homework/delete", prkita);
 		url.searchParams.set("id", id);
 		const res = await fetch(url.href, {
 			method: "DELETE",
 			headers: {
 				authorization: `Bearer ${token}`
-			},
+			}
 		});
 		if (res.status === 401) {
 			goto("/admin/login");
 		}
 		if (!res.ok) {
-			throw new Error("failed to delete")
+			throw new Error("failed to delete");
 		}
 	}
 </script>
@@ -44,18 +44,17 @@
 			{/each}
 		</ul>
 		{#if admin}
-			<button 
-				class="bg-red-500 rounded-md" 
-				on:click={() => deleteProcess = del(id)}
-			> Delete </button>
+			<button class="bg-red-500 rounded-md" on:click={() => (deleteProcess = del(id))}>
+				Delete
+			</button>
 		{/if}
 		{#if deleteProcess}
 			{#await deleteProcess}
-				<div class=""> Deleting Homework </div>
+				<div class="">Deleting Homework</div>
 			{:then}
-				<div class=""> Successful to delete Homework </div>
+				<div class="">Successful to delete Homework</div>
 			{:catch}
-				<div class="bg-pastel-pink"> Failed to delete Homework</div>
+				<div class="bg-pastel-pink">Failed to delete Homework</div>
 			{/await}
 		{/if}
 	</div>
