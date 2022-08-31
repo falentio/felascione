@@ -3,7 +3,7 @@
 	import "@fontsource/abel/400.css";
 	import "@fontsource/cinzel/400.css";
 
-	import { browser } from "$app/env";
+	import { browser } from "$app/environment";
 	import Navbar from "$lib/components/Navbar.svelte";
 	import Footer from "$lib/components/Footer.svelte";
 	import LoginGuard from "$lib/components/LoginGuard.svelte";
