@@ -8,8 +8,10 @@
 	import HomeworkCard from "$lib/components/HomeworkCard.svelte";
 	const currentDate = format(new Date(), "yyyy-MM-dd");
 	let dueDate: string = currentDate;
-	$: dueDate = $page.url.searchParams.get("dueDate") ?? dueDate
 	$: homeworks = getHomeworks(dueDate);
+	if (browser) {
+		dueDate = new URL(window.location).searchParams.get("dueDate") ?? dueDate
+	}
 
 	function getWhatsappShareUrl(dueDate: string): string {
 		const shareUrl = new URL("/pr", $page.url)
