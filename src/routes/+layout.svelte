@@ -9,7 +9,6 @@
 	import LoginGuard from "$lib/components/LoginGuard.svelte";
 </script>
 
-<LoginGuard />
 <Navbar />
 <main class="min-h-screen flex flex-col">
 	<div class="container mx-auto">

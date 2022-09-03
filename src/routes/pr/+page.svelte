@@ -42,7 +42,7 @@
 </script>
 
 <section
-	class="m-4 flex flex-col gap-4 justify-center text-center rounded-xl bg-pastel-blue p-2 border-2 border-black"
+	class="m-4 flex flex-col gap-1 justify-center rounded-xl bg-pastel-blue p-2 border-2 border-black"
 >
 	<div class="flex flex-row justify-center text-xl gap-4">
 		<button class="bg-pastel-yellow shadow-md rounded-md px-2" on:click={prevDay}> Prev </button>
@@ -50,11 +50,13 @@
 		<button class="bg-pastel-yellow shadow-md rounded-md px-2" on:click={nextDay}> Next </button>
 	</div>
 
+
 	<a class="w-max p-2 bg-[#25D366] rounded-md flex flex-row mx-auto items-center gap-2 w-1/2 md:w-1/4" href={getWhatsappShareUrl(dueDate)}>
 		<span>Share to whatsapp</span>
 		<Icon icon="mdi:whatsapp" class="text-white w-1/6 h-max"/>
 	</a>
 </section>
+
 
 {#await homeworks}
 	<section
@@ -71,6 +73,9 @@
 				<li>???</li>
 			{/each}
 		</ul>
+		{#if res.length}
+			<div class="rounded-md p-2"> Semangat teman-teman</div>
+		{/if}
 	</section>
 {:catch e}
 	<section
@@ -79,5 +84,3 @@
 		Gagal mendapatkan daftar PR
 	</section>
 {/await}
-
-<section />
