@@ -16,7 +16,7 @@
 	async function createHomework() {
 		try {
 			idle = false;
-			const token = sessionStorage.getItem("PRKITA-TOKEN")!;
+			const token = localStorage.getItem("PRKITA-TOKEN")!;
 			const headers = new Headers();
 			headers.set("Authorization", `Bearer ${token}`);
 			headers.set("Content-Type", "application/json");
@@ -33,7 +33,7 @@
 			});
 
 			if (res.status === 401) {
-				sessionStorage.removeItem("PRKITA-TOKEN");
+				localStorage.removeItem("PRKITA-TOKEN");
 				goto("/admin/login");
 				return;
 			}
