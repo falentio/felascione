@@ -35,7 +35,7 @@
 <li class="p-1 w-full md:w-1/2">
 	<div class="bg-pastel-yellow rounded-md shadow-md p-2 flex flex-col">
 		<span class="underline text-xl font-bold">{subject}</span>
-		<span>{description}</span>
+		<span class="whitespace-pre-line break-normal">{description}</span>
 		<ul>
 			{#each attatchments as { url }}
 				<li class="">
