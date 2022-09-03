@@ -50,7 +50,7 @@
 
 	<a class="w-max p-2 bg-[#25D366] rounded-md flex flex-row mx-auto items-center gap-2 w-1/2 md:w-1/4" href={getWhatsappShareUrl(dueDate)}>
 		<span>Share to whatsapp</span>
-		<Icon icon="mdi:whatsapp" class="text-white w-1/3 h-max"/>
+		<Icon icon="mdi:whatsapp" class="text-white w-1/6 h-max"/>
 	</a>
 </section>
 
