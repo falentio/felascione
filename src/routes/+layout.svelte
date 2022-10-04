@@ -18,7 +18,7 @@
 		type: "website",
 		title: "Felascione",
 		description: "Website kelas XII MIPA 1 yang sederhana",
-		images: [{ url: "/favicon.jpg", alt: "Felascione Logo" }],
+		images: [{ url: "https://felascione.pages.dev/favicon.jpg", alt: "Felascione Logo" }],
 	}}
 
 	twitter={{
@@ -27,7 +27,7 @@
 		handle: "@falentio_",
 		title: "Felascione",
 		description: "Website kelas XII MIPA 1 yang sederhana",
-		image: "/favicon.jpg",
+		image: "https://felascione.pages.dev/favicon.jpg",
 		imageAlt: "Felascione Logo",
 	}}
 />
