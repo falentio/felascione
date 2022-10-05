@@ -1,11 +1,14 @@
 <script lang="ts">
+	import { XorshiftRng, FoolRandomizer } from "$lib/fool_randomizer"
+
 	interface Student {
 		attendanceNumber: number;
 		name: string;
 		gender: string;
 	}
 
-	let students: Student[] = [];
+	const rng = new XorshiftRng("Noryvn")
+	const fool = new FoolRandomizer<Student>(rng)
 
 	function addStudents(attendanceNumber: number, name: string, gender: string) {
 		const s = {
@@ -13,11 +16,11 @@
 			name,
 			gender
 		};
-		students.push(s);
+		fool.addItem(s)
 		return s;
 	}
 
-	const abel = addStudents(1, "Abelia", "female");
+	addStudents(1, "Abelia", "female");
 	addStudents(2, "Adinda", "female");
 	addStudents(3, "Afandi", "male");
 	addStudents(4, "Agnes", "female");
@@ -43,54 +46,22 @@
 	addStudents(24, "Nayla", "female");
 	addStudents(25, "Ni Putu", "female");
 	addStudents(26, "Riska", "female");
-	const rivaldi = addStudents(27, "Rivaldi", "male");
+	addStudents(27, "Rivaldi", "male");
 	addStudents(28, "Sindi", "female");
 	addStudents(29, "Tjokorda", "female");
 	addStudents(30, "Wanda", "female");
 
-	let teamsCount = 1;
+	let teamsCount = 2;
+	let seed = "hai"
 	let teams: Student[][] = [];
-
-	function fillTeams(teamsCount: number, fairMale: boolean) {
-		if (teamsCount <= 1) {
-			return [students];
-		}
-		if (teamsCount > students.length) {
-			teamsCount = students.length;
-		}
-
-		const t = [[abel], [rivaldi]];
-		if (fairMale) {
-			let i = 2;
-			const maleStudents = students
-				.filter((s) => s.gender === "male")
-				.filter((s) => s !== rivaldi)
-				.sort(() => Math.random() - 0.5);
-			for (const s of maleStudents) {
-				const tnow = (t[i++ % teamsCount] ??= []);
-				tnow.push(s);
-			}
-			const femaleStudents = students
-				.filter((s) => s.gender === "female")
-				.filter((s) => s !== abel)
-				.sort(() => Math.random() - 0.5);
-			for (const s of femaleStudents) {
-				const tnow = (t[i++ % teamsCount] ??= []);
-				tnow.push(s);
-			}
-		} else {
-			let i = 2;
-			const stds = students.filter((s) => s !== rivaldi).filter((s) => s !== abel);
-			for (const s of stds) {
-				const tnow = (t[i++ % teamsCount] ??= []);
-				tnow.push(s);
-			}
-		}
-		return t
-			.map((i) => i.sort((a, b) => a.attendanceNumber - b.attendanceNumber))
-			.sort(() => Math.random() - 0.5);
+	fool.createConflict(i => ["Abelia", "Rivaldi"].includes(i.name))
+	fool.createChain(i => ["Nadia", "Gilang"].includes(i.name))
+	$: if (true) {
+		fool.rng.setSeed(seed);
+		teams = fool
+			.split(teamsCount)
+			.map(i => i.sort((a, b) => a.attendanceNumber - b.attendanceNumber))
 	}
-	$: teams = fillTeams(teamsCount, true);
 </script>
 
 <section class="flex flex-col justify-center p-4 gap-4 items-center">
@@ -102,7 +73,7 @@
 			<button
 				class="w-12 bg-pastel-yellow rounded-md p-2 disabled:bg-gray-300 disabled:text-gray-200"
 				on:click={() => teamsCount--}
-				disabled={teamsCount <= 1}
+				disabled={teamsCount <= 2}
 			>
 				-
 			</button>
@@ -110,14 +81,22 @@
 			<button
 				class="w-12 bg-pastel-yellow rounded-md p-2 disabled:bg-gray-300 disabled:text-gray-200"
 				on:click={() => teamsCount++}
-				disabled={teamsCount >= students.length / 2}
+				disabled={teamsCount >= fool.items.length / 3}
 			>
 				+
 			</button>
 		</div>
+		<label class="flex flex-row items-center">
+			<span class="capitalize w-full">
+				combination id 
+			</span>
+			<input type="text" name="" bind:value={seed} class="p-2" />
+		</label>
 		<button
 			class="bg-pastel-yellow rounded-md shadow-md h-8"
-			on:click={() => (teams = fillTeams(teamsCount, true))}
+			on:click={() => {
+				seed = (Math.random() * 1000 | 0).toString()
+			}}
 		>
 			Acak
 		</button>
