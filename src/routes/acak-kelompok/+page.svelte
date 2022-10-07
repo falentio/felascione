@@ -204,6 +204,9 @@
 					disabled={conflict.length >= teamsCount}
 					bind:value={selectedConflict} 
 					on:change={() => {
+						if (conflict.includes(selectedConflict)) {
+							return
+						}
 						if (selectedConflict) {
 							conflict.push(selectedConflict)
 							conflict = conflict
