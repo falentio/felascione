@@ -39,12 +39,16 @@ export interface FoolItem<T> {
 }
 
 export class FoolRandomizer<T> {
-	private counter = 0
+	private counter = 1
 	items: FoolItem<T>[]
 	rng: Rng
 	constructor(rng: Rng) {
 		this.items = []
 		this.rng = rng
+	}
+
+	getItems() {
+		return this.items.map(i => i.data)
 	}
 
 	addItem(data: T) {
@@ -66,6 +70,12 @@ export class FoolRandomizer<T> {
 		return id
 	}
 
+	clearChain() {
+		for (const item of this.items) {
+			item.chain = null
+		}
+	}
+
 	createConflict(picker: (d: T) => boolean): string {
 		const id = ++this.counter
 		for (const item of this.items) {
@@ -75,6 +85,12 @@ export class FoolRandomizer<T> {
 			item.conflict = id
 		}
 		return id
+	}
+
+	clearConflict() {
+		for (const item of this.items) {
+			item.conflict = null
+		}
 	}
 
 	split(
@@ -111,14 +127,25 @@ export class FoolRandomizer<T> {
 				items.sort(() => this.rng.next() - 0.5)
 				const gender = current.filter(i => i.data.gender === "male").length >= spreads(10, n, i) ? "female" : "male"
 				const item = items.find(i => i.data.gender === gender) || items[0]
-				if (item.conflict && current.find(i => i.conflict === item.conflict)) {
-					continue
-				}
+				const conflict = new Set()
 				const candidates = items.filter(i => {
-					if (!item.chain) {
-						return i === item
+					if (i.conflict) {
+						if (i.conflict === item.conflict && i !== item) {
+							return false
+						}
+						for (const { conflict } of current) {
+							if (conflict && conflict === i.conflict) {
+								return false
+							}
+						}
 					}
-					return item.chain === i.chain
+					if (item === i) {
+						return true
+					}
+					if (item.chain) {
+						return item.chain === i.chain
+					}
+					return false
 				})
 				if (candidates.length + current.length > targetLength) {
 					continue

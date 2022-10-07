@@ -54,10 +54,34 @@
 	let teamsCount = 2;
 	let seed = "hai"
 	let teams: Student[][] = [];
-	fool.createConflict(i => ["Abelia", "Rivaldi"].includes(i.name))
-	fool.createChain(i => ["Nadia", "Gilang"].includes(i.name))
+	let chains: string[][] = [
+	];
+	let chain: string[] = []
+	let conflict: string[] = []
+	let selected = ""
+	let selectedConflict = ""
+	let showChain = false
+	let showConflict = false
+
 	$: if (true) {
-		fool.rng.setSeed(seed);
+		rng.setSeed(seed);
+		fool.clearChain();
+		fool.clearConflict();
+		chains.forEach((chain, i) => {
+			if (chain.length > (fool.items.length / teamsCount | 0)) {
+				chains.splice(i, 1)
+				chains = chains
+				return
+			}
+			chain.sort()
+			fool.createChain(i => chain.includes(i.name))
+		})
+		fool.createChain(i => ["Nadia", "Gilang"].includes(i.name))
+		if (conflict.length > teamsCount) {
+			conflict = conflict.slice(0, teamsCount)
+		}
+		fool.createConflict(i => conflict.includes(i.name))
+		fool.createConflict(i => ["Abelia", "Rivaldi"].includes(i.name))
 		teams = fool
 			.split(teamsCount)
 			.map(i => i.sort((a, b) => a.attendanceNumber - b.attendanceNumber))
@@ -66,7 +90,7 @@
 
 <section class="flex flex-col justify-center p-4 gap-4 items-center">
 	<div
-		class="flex flex-col flex-wrap gap-2 rounded-sm bg-pastel-blue p-2 border-2 border-black shadow-md rounded-md"
+		class="flex flex-col flex-wrap gap-2 rounded-sm bg-pastel-blue p-2 border-2 border-black shadow-md rounded-md w-full"
 	>
 		<div class="flex flex-row gap-2 items-center">
 			<span class=""> Jumlah Kelompok: </span>
@@ -87,21 +111,136 @@
 			</button>
 		</div>
 		<label class="flex flex-row items-center">
-			<span class="capitalize w-full">
-				combination id 
+			<span class="capitalize w-max">
+				id:
 			</span>
-			<input type="text" name="" bind:value={seed} class="p-2" />
+			<input type="text" name="" bind:value={seed} class="p-2 flex-auto ml-2 rounded focus:outline-none focus:ring-2 ring-sky-500" />
 		</label>
+		<button class="w-full bg-pastel-yellow rounded p-1" on:click={() => showChain = !showChain}> Chain </button>
+		<p class="hidden"></p>
+		<ul class="w-full divide-y divide-black" class:hidden={!showChain}>
+			<li class="flex flex-col">
+				<p> Murid yang memiliki <span class="italic">Chain</span> akan selalu berada dalam satu kelompok </p>
+				<ul class="flex flex-row flex-wrap">
+					{#each chain as name, i (name)}
+						<li class="mr-2 p-1 bg-green-400 rounded my-1">
+							<button
+								class="w-full h-full"
+								on:click={() => {
+									chain.splice(i, 1)
+									chain = chain
+								}}
+							>
+								{name}
+							</button> 
+						</li>
+					{/each}
+					<li class="flex-auto"/>
+					<li class="mr-auto">
+						<button
+							class="bg-pastel-yellow disabled:bg-gray-300 disabled:text-gray-200 p-1 rounded"
+							disabled={chain.length < 2 || chain.length > (fool.items.length / teamsCount | 0)}
+							on:click={() => {
+								chains.push(chain)
+								chain = [];
+								chains = chains;
+							}}
+						>
+							Add 
+						</button>
+					</li>
+				</ul>
+				<select 
+					class="focus:outline-none p-2 rounded" 
+					bind:value={selected} 
+					on:change={() => {
+						if (selected) {
+							chain.push(selected)
+							chain = chain
+							selected = ""
+						}
+					}}
+				>
+					<option value=""> Pilih nama siswa </option>
+					{#each fool.getItems().filter(i => !chains.flat().includes(i.name) && !chain.includes(i.name)) as { name } (name)}
+						<option value={name}>{name}</option>
+					{/each}
+				</select>
+			</li>
+			{#each chains as chain, i}
+				<li class="w-full my-2">
+					<div class="flex flex-row justify-between">
+						<span> Chain No {i + 1}. </span>
+						<button 
+							on:click={() => { 
+								chains.splice(i, 1)
+								chains = chains
+							}}
+							class="rounded bg-red-500 p-1"
+						> 
+							Delete
+						</button>
+					</div>
+					<ul class="flex flex-row flex-wrap">
+						{#each chain as name}
+							<li class="mr-2 my-1 p-1 bg-green-400 rounded">
+								{name}
+							</li>
+						{/each}
+					</ul>
+				</li>
+			{/each}
+			<li />
+		</ul>
+		<button class="w-full bg-pastel-yellow rounded p-1" on:click={() => showConflict = !showConflict}> Conflict </button>
+		<ul class="w-full divide-y divide-black" class:hidden={!showConflict}>
+			<li class="flex flex-col">
+				<p> Murid yang memiliki <span class="italic">Conflict</span> tidak akan berada dalam satu kelompok </p>
+				<select 
+					class="focus:outline-none p-2 rounded disabled:bg-gray-300 disabled:text-gray-100"
+					disabled={conflict.length >= teamsCount}
+					bind:value={selectedConflict} 
+					on:change={() => {
+						if (selectedConflict) {
+							conflict.push(selectedConflict)
+							conflict = conflict
+							selectedConflict = ""
+						}
+					}}
+				>
+					<option value=""> Pilih nama siswa </option>
+					{#each fool.getItems() as { name } (name)}
+						<option value={name}>{name}</option>
+					{/each}
+				</select>
+				<p class:hidden={conflict.length < teamsCount}> Jumlah Conflict tidak bisa melebihi jumlah kelompok </p>
+			</li>
+			<ul class="flex flex-row">
+				{#each conflict as name, i}
+					<li class="mr-2 my-1 p-1 bg-green-400 rounded">
+						<button
+							on:click={() => {
+								conflict.splice(i, 1)
+								conflict = conflict
+							}}
+						>
+							{name}
+						</button>
+					</li>
+				{/each}
+			</ul>
+			<li />
+		</ul>
 		<button
-			class="bg-pastel-yellow rounded-md shadow-md h-8"
+			class="bg-pastel-yellow rounded h-8"
 			on:click={() => {
-				seed = (Math.random() * 1000 | 0).toString()
+				seed = (Math.random() * 10000 | 0).toString()
 			}}
 		>
 			Acak
 		</button>
 		<div>
-			<span class="bg-pastel-pink">Background Pink:</span> Laki Laki
+			<span class="bg-green-400">Background Hijau:</span> Laki Laki
 		</div>
 	</div>
 	<div class="flex flex-row flex-wrap w-full rounded-md justify-center">
@@ -124,7 +263,7 @@
 					</li>
 					<li class="text-2xl">Anggota:</li>
 					{#each team as { name, attendanceNumber, gender } (name)}
-						<li class:bg-pastel-pink={gender === "male"}>{attendanceNumber}. {name}</li>
+						<li class:bg-green-400={gender === "male"}>{attendanceNumber}. {name}</li>
 					{/each}
 				</ul>
 			</div>
