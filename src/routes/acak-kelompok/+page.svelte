@@ -218,7 +218,7 @@
 				</select>
 				<p class:hidden={conflict.length < teamsCount}> Jumlah Conflict tidak bisa melebihi jumlah kelompok </p>
 			</li>
-			<ul class="flex flex-row">
+			<ul class="flex flex-row flex-wrap">
 				{#each conflict as name, i}
 					<li class="mr-2 my-1 p-1 bg-green-400 rounded">
 						<button
