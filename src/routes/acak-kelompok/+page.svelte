@@ -195,7 +195,10 @@
 		<button class="w-full bg-pastel-yellow rounded p-1" on:click={() => showConflict = !showConflict}> Conflict </button>
 		<ul class="w-full divide-y divide-black" class:hidden={!showConflict}>
 			<li class="flex flex-col">
-				<p> Murid yang memiliki <span class="italic">Conflict</span> tidak akan berada dalam satu kelompok </p>
+				<p> 
+					Murid yang memiliki <span class="italic">Conflict</span> tidak akan berada dalam satu kelompok.
+					Memiliki prioritas lebih tinggi di banding <span class="italic"> Chain </span> 
+				</p>
 				<select 
 					class="focus:outline-none p-2 rounded disabled:bg-gray-300 disabled:text-gray-100"
 					disabled={conflict.length >= teamsCount}
