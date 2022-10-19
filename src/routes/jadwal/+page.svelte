@@ -16,10 +16,10 @@
 				{ from: "10:15", subject: "Geografi", teacher: "Shinta D. Nirwana" },
 				{ from: "11:00", subject: "PJOK", teacher: "Andrie S." },
 				{ from: "11:45", subject: "Istirahat", teacher: null },
-				{ from: "12:20", subject: "MTK Peminatan", teacher: "Ade Nusa" },
-				{ from: "13:00" },
-				{ from: "13:40", subject: "Bahasa Inggris", teacher: "A. Mutolib" },
-				{ from: "14:20", to: "15:00" }
+				{ from: "12:05", subject: "MTK Peminatan", teacher: "Ade Nusa" },
+				{ from: "12:45" },
+				{ from: "13:25", subject: "Bahasa Inggris", teacher: "A. Mutolib" },
+				{ from: "14:05", to: "14:45" }
 			]
 		},
 		{
@@ -33,10 +33,10 @@
 				{ from: "10:15", subject: "PJOK", teacher: "Andrie S." },
 				{ from: "11:00" },
 				{ from: "11:45", subject: "Istirahat", teacher: null },
-				{ from: "12:20", subject: "PKN", teacher: "Agustin" },
-				{ from: "13:00" },
-				{ from: "13:40", subject: "Bahasa Indonesia", teacher: "Santi J. A." },
-				{ from: "14:20", to: "15:00" }
+				{ from: "12:05", subject: "PKN", teacher: "Agustin" },
+				{ from: "12:45" },
+				{ from: "13:25", subject: "Bahasa Indonesia", teacher: "Santi J. A." },
+				{ from: "14:05", to: "14:45" }
 			]
 		},
 		{
@@ -50,10 +50,10 @@
 				{ from: "10:15", subject: "Jawa", teacher: "Dzakiya Q." },
 				{ from: "11:00" },
 				{ from: "11:45", subject: "Istirahat", teacher: null },
-				{ from: "12:20", subject: "Kimia", teacher: "Yulia F. H." },
-				{ from: "13:00" },
-				{ from: "13:40", subject: "Bahasa Indonesia", teacher: "Santi J. A." },
-				{ from: "14:20", to: "15:00" }
+				{ from: "12:05", subject: "Kimia", teacher: "Yulia F. H." },
+				{ from: "12:45" },
+				{ from: "13:25", subject: "Bahasa Indonesia", teacher: "Santi J. A." },
+				{ from: "14:05", to: "14:45" }
 			]
 		},
 		{
@@ -67,10 +67,10 @@
 				{ from: "10:15", subject: "Geografi", teacher: "Shinta D. Nirwana" },
 				{ from: "11:00" },
 				{ from: "11:45", subject: "Istirahat", teacher: null },
-				{ from: "12:20", subject: "BK", teacher: "Ajeng A." },
-				{ from: "13:00", subject: "PAI", teacher: "Athiyyatur R." },
-				{ from: "13:40", subject: "MTK Wajib", teacher: "Widi A. S." },
-				{ from: "14:20", to: "15:00" }
+				{ from: "12:05", subject: "BK", teacher: "Ajeng A." },
+				{ from: "12:45", subject: "PAI", teacher: "Athiyyatur R." },
+				{ from: "13:25", subject: "MTK Wajib", teacher: "Widi A. S." },
+				{ from: "14:05", to: "14:45" }
 			]
 		},
 		{
@@ -80,13 +80,13 @@
 				{ from: "07:40", subject: "Kimia", teacher: "Yulia F. H." },
 				{ from: "08:25" },
 				{ from: "09:10", subject: "PAI", teacher: "Athiyyatur R." },
-				{ from: "09:55", subject: "Istirahat", teacher: null },
-				{ from: "10:10", subject: "PAI", teacher: "Athiyyatur R." },
-				{ from: "10:55", subject: "MTK Wajib", teacher: "Widi A. S." },
-				{ from: "11:40", subject: "Soljum/Keputrian", teacher: null },
-				{ from: "12:10", subject: "MTK Wajib", teacher: "Widi A. S." },
-				{ from: "12:40", subject: "PKWU", teacher: "Dewi K." },
-				{ from: "13:20", to: "14:00" }
+				{ from: "09:50", subject: "Istirahat", teacher: null },
+				{ from: "10:05", subject: "PAI", teacher: "Athiyyatur R." },
+				{ from: "10:45", subject: "MTK Wajib", teacher: "Widi A. S." },
+				{ from: "11:25", subject: "Soljum/Keputrian", teacher: null },
+				{ from: "12:30", subject: "MTK Wajib", teacher: "Widi A. S." },
+				{ from: "13:10", subject: "PKWU", teacher: "Dewi K." },
+				{ from: "13:50", to: "14:30" }
 			]
 		}
 	];
