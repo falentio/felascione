@@ -77,7 +77,6 @@
 			fool.createChain(i => chain.includes(i.name))
 		})
 		fool.createChain(i => ["Nadia", "Gilang"].includes(i.name))
-		fool.createChain(i => ["Angda", "Ayuhana", "Adinda", "Elang", "Kaka"].slice(0, fool.items.length / teamsCount).includes(i.name))
 		if (conflict.length > teamsCount) {
 			conflict = conflict.slice(0, teamsCount)
 		}
