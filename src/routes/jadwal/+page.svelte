@@ -67,7 +67,7 @@
 				{ from: "10:15", subject: "Geografi", teacher: "Shinta D. Nirwana" },
 				{ from: "11:00" },
 				{ from: "11:45", subject: "Istirahat", teacher: null },
-				{ from: "12:05", subject: "BK", teacher: "Ajeng A." },
+				{ from: "12:05", subject: "BK", teacher: "Ajeng A. / Ighfir" },
 				{ from: "12:45", subject: "PAI", teacher: "Athiyyatur R." },
 				{ from: "13:25", subject: "MTK Wajib", teacher: "Widi A. S." },
 				{ from: "14:05", to: "14:45" }
