@@ -76,7 +76,6 @@
 			chain.sort()
 			fool.createChain(i => chain.includes(i.name))
 		})
-		fool.createChain(i => ["Nadia", "Gilang"].includes(i.name))
 		if (conflict.length > teamsCount) {
 			conflict = conflict.slice(0, teamsCount)
 		}
