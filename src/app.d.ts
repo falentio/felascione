@@ -6,7 +6,7 @@ declare namespace App {
 	// interface Platform {}
 	// interface PrivateEnv {}
 	interface PublicEnv {
-		PUBLIC_PRKITA: string;
+		PUBLIC_NORY_URL: string;
 	}
 	// interface Session {}
 	// interface Stuff {}
