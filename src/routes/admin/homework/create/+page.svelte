@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { PUBLIC_PRKITA_URL as prkita } from "$env/static/public";
+	import { PUBLIC_NORY_URL as prkita } from "$env/static/public";
 	import { goto } from "$app/navigation";
 	const currentDate = new Date().toISOString().slice(0, 10);
 	let subject: string;

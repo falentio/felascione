@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { PUBLIC_PRKITA_URL as prkita } from "$env/static/public";
+	import { PUBLIC_NORY_URL as prkita } from "$env/static/public";
 	import { goto } from "$app/navigation";
 	const searchParams = new URLSearchParams();
 	let username: string;
